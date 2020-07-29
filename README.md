@@ -5,23 +5,25 @@
 [![license](https://img.shields.io/badge/license-MIT-67ac5b.svg?logo=data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMi4wMDkgNTEyLjAwOSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyLjAwOSA1MTIuMDA5OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij4KPHBhdGggc3R5bGU9ImZpbGw6IzRDQUY1MDsiIGQ9Ik0yNTUuOTQ0LDE1LjkzQzExNC42MTgsMTUuOTAyLDAuMDI4LDEzMC40NDYsMCwyNzEuNzcyQy0wLjAxOCwzNjQuMDg5LDQ5LjY4OSw0NDkuMjYsMTMwLjA3Nyw0OTQuNjUgIGMyLjQ1NiwxLjQxNSw1LjM4LDEuNzc3LDguMTA3LDEuMDAzYzIuNzA4LTAuNzU2LDUuMDA4LTIuNTUsNi40LTQuOTkybDc4LjkzMy0xMzkuNDk5YzIuODk1LTUuMTI2LDEuMDkxLTExLjYyOC00LjAzMi0xNC41MjggIGMtMzUuOTU0LTIwLjE5NC00OC43My02NS43MTItMjguNTM1LTEwMS42NjZzNjUuNzEyLTQ4LjczLDEwMS42NjYtMjguNTM1czQ4LjczLDY1LjcxMiwyOC41MzUsMTAxLjY2NiAgYy02LjcxMiwxMS45NTEtMTYuNTg1LDIxLjgyMy0yOC41MzUsMjguNTM1Yy01LjEyMywyLjktNi45MjcsOS40MDItNC4wMzIsMTQuNTI4bDc4LjcyLDEzOS40OTljMS4zODgsMi40NSwzLjY4OSw0LjI1Myw2LjQsNS4wMTMgIGMwLjkyOSwwLjI2OSwxLjg5MSwwLjQwNiwyLjg1OSwwLjQwNWMxLjg0LTAuMDAyLDMuNjQ4LTAuNDgsNS4yNDgtMS4zODdjMTIzLjA4Ny02OS40NDQsMTY2LjU3My0yMjUuNTIyLDk3LjEyOS0zNDguNjEgIEM0MzMuNTQ4LDY1LjYyOSwzNDguMzE5LDE1Ljg4NCwyNTUuOTQ0LDE1LjkzeiIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K)](https://en.wikipedia.org/wiki/MIT_License)
 
 # AppLogger
-Wrapper around Apple's newest Swift logging APIs ([Unified Logging](https://developer.apple.com/documentation/os/logging) / [OSLog](https://developer.apple.com/documentation/os/oslog) / [Logger](https://developer.apple.com/documentation/os/logger)).
+Wrapper around Apple's new Swift logging APIs, particularly [Logger](https://developer.apple.com/documentation/os/logger).
 
-In its first release, this package provides a basic public / private logging functionality using the `debug` level.
+In its first release, this package provides a basic `public` / `private` logging functionality at the `debug` level.
 
 For more information, please refer to this WWDC20 video: [Explore logging in Swift](https://developer.apple.com/wwdc20/10168)
 
 ## Supported platforms
  - iOS 14+
  - macOS 11+ (BigSur+)
+ - Mac Catalyst 14.0+
  - tvOS 14+
  - watchOS 7+
+ - Xcode 12.0+
 
 ## Usage
 ```swift
 import AppLogger
 
-// Create an instance of the `AppLogger` with default options.
+// Create an instance of the "AppLogger with default options.
 let logger = AppLogger()
 
 // Log public information.
@@ -39,6 +41,23 @@ struct Defaults {
     static let isPrivate = false
 }
 ```
+
+### Output
+
+#### Xcode console
+Notice that information marked as `.private` will still be visible in Xcode console as clear text.
+
+![Xcode Sample](https://i.imgur.com/6TNaUQo.png)
+
+#### macOS Console app
+⚠️ Make sure you have enabled `Action / Include Debug Messages` in the **Console app** in order to see `debug messages` from your app.
+
+![Console App](https://i.imgur.com/XBGOpLP.png)
+
+##### macOS Console app: a note on `.private`
+Keep in mind that private information will still be visible in the Console app as clear text if the device is attached to the debugger. [Apparently this is by design](https://stackoverflow.com/a/62903401/584548).
+
+![Console App Private Debugger](https://i.imgur.com/2DgWNA8.png)
 
 ## Integration
 ### Xcode
