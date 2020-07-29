@@ -24,7 +24,7 @@ AppLogger.shared.log("Username: \(username); Password: \(password)", isPrivate: 
 
 ### Defaults
 ```swift
-fileprivate struct Defaults {
+struct Defaults {
     static let subsystem = Bundle.main.bundleIdentifier ?? "AppLogger"
     static let category = "default"
     static let isPrivate = false
