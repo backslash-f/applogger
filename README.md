@@ -16,10 +16,10 @@ For more information, please refer to this WWDC20 video: [Explore logging in Swi
 import AppLogger
 
 // Log public information.
-AppLogger.shared.log("iPhone screen size: \(screenSize)")
+AppLogger().log("iPhone screen size: \(screenSize)")
 
 // Log private information.
-AppLogger.shared.log("Username: \(username); Password: \(password)", isPrivate: true)
+AppLogger().log("Username: \(username); Password: \(password)", isPrivate: true)
 ```
 
 ### Defaults
