@@ -15,11 +15,14 @@ For more information, please refer to this WWDC20 video: [Explore logging in Swi
 ```swift
 import AppLogger
 
+// Create an instance of the `AppLogger` with default options.
+let logger = AppLogger()
+
 // Log public information.
-AppLogger().log("iPhone screen size: \(screenSize)")
+logger.log("iPhone screen size: \(screenSize)")
 
 // Log private information.
-AppLogger().log("Username: \(username); Password: \(password)", isPrivate: true)
+logger.log("Username: \(username); Password: \(password)", isPrivate: true)
 ```
 
 ### Defaults
