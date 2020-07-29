@@ -11,6 +11,12 @@ In its first release, this package provides a basic public / private logging fun
 
 For more information, please refer to this WWDC20 video: [Explore logging in Swift](https://developer.apple.com/wwdc20/10168)
 
+## Supported platforms
+ - iOS 14+
+ - macOS 11+ (BigSur+)
+ - tvOS 14+
+ - watchOS 7+
+
 ## Usage
 ```swift
 import AppLogger
