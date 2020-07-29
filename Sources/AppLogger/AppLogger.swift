@@ -15,15 +15,15 @@ import os
 ///  - [Unified Logging](https://developer.apple.com/documentation/os/logging)
 ///  - [OSLog](https://developer.apple.com/documentation/os/oslog)
 ///  - [Logger](https://developer.apple.com/documentation/os/logger)
-struct AppLogger {
+public struct AppLogger {
 
     // MARK: - Properties
 
-    /// The default values used by this class.
-    struct Defaults {
-        static let subsystem = Bundle.main.bundleIdentifier ?? "AppLogger"
-        static let category = "default"
-        static let isPrivate = false
+    /// Default values used by the `AppLogger`.
+    public struct Defaults {
+        public static let subsystem = Bundle.main.bundleIdentifier ?? "AppLogger"
+        public static let category = "default"
+        public static let isPrivate = false
     }
 
     // MARK: - Private Properties
@@ -41,14 +41,14 @@ struct AppLogger {
     ///   subsystem. For example, if you used a single subsystem for your app, you might create separate categories for
     ///   model code and user-interface code. In a game, you might use categories to distinguish between physics, AI,
     ///   world simulation, and rendering. The default is `default`.
-    init(subsystem: String = Defaults.subsystem, category: String = Defaults.category) {
+    public init(subsystem: String = Defaults.subsystem, category: String = Defaults.category) {
         self.logger = Logger(subsystem: subsystem, category: category)
     }
 }
 
 // MARK: - Interface
 
-extension AppLogger {
+public extension AppLogger {
     
     /// Logs a string interpolation at the `debug` level.
     ///

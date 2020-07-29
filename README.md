@@ -35,10 +35,10 @@ logger.log("Username: \(username); Password: \(password)", isPrivate: true)
 
 ### Defaults
 ```swift
-struct Defaults {
-    static let subsystem = Bundle.main.bundleIdentifier ?? "AppLogger"
-    static let category = "default"
-    static let isPrivate = false
+public struct Defaults {
+    public static let subsystem = Bundle.main.bundleIdentifier ?? "AppLogger"
+    public static let category = "default"
+    public static let isPrivate = false
 }
 ```
 
