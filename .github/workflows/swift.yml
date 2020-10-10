@@ -1,14 +1,10 @@
-name: build
-
+name: "Build"
 on: [push]
-env:
-  DEVELOPER_DIR: /Applications/Xcode_12_beta.app/Contents/Developer
-
 jobs:
   build:
-
     runs-on: macOS-latest
-
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_12.2.app/Contents/Developer
     steps:
     - uses: actions/checkout@v2
     - name: Build
