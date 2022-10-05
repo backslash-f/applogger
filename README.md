@@ -7,7 +7,7 @@
 # AppLogger
 Wrapper around Apple's new Swift logging APIs, particularly [Logger](https://developer.apple.com/documentation/os/logger).
 
-In its first release, this package provides a basic `public` / `private` logging functionality at the `debug` level.
+Provides a basic `public` / `private` logging functionality at a given level (e.g. `debug` (default)).
 
 For more information, please refer to this WWDC20 video: [Explore logging in Swift](https://developer.apple.com/wwdc20/10168)
 
@@ -45,12 +45,10 @@ public struct Defaults {
 ### Output
 
 #### Xcode console
-Notice that information marked as `.private` will still be visible in Xcode console as clear text.
-
 ![Xcode Sample](https://i.imgur.com/6TNaUQo.png)
 
 #### macOS Console app
-⚠️ Make sure you have enabled `Action / Include Debug Messages` in the **Console app** in order to see `debug messages` from your app.
+⚠️ Make sure you have enabled `Action / Include Info/Debug Messages` in the **Console app** in order to see `debug messages` from your app.
 
 ![Console App](https://i.imgur.com/XBGOpLP.png)
 
