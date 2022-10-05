@@ -50,17 +50,23 @@ public struct AppLogger {
 
 public extension AppLogger {
     
-    /// Logs a string interpolation at the `debug` level.
+    /// Logs a string interpolation at the given level.
+    ///
+    /// Notice that `.debug` won't work with simulators (nothing is shown in the Console app for this level),
+    /// but works fine with physical devices. This is a known issue:
+    /// https://stackoverflow.com/a/58814535/584548
     ///
     /// - Parameters:
-    ///   - information: The `String` to be logged.
-    ///   - isPrivate: Sets the `OSLogPrivacy` to be used by the function. `true` means a `.private` `OSLogPrivacy`;
-    ///   `false` means a `.public` `OSLogPrivacy`. The default is `false`.
-    func log(_ information: String, isPrivate: Bool = Defaults.isPrivate) {
+    ///   - level: `OSLogType`; default is `.debug`.
+    ///   - message: The `String` to be logged.
+    ///   - isPrivate: Sets the `OSLogPrivacy` to be used by the function. `true` means `.private`;
+    ///   `false` means `.public`. The default is `false`.
+    func log(level: OSLogType = .debug, message: String, isPrivate: Bool = Defaults.isPrivate) {
         if isPrivate {
-            logger.debug("\(information, privacy: .private)")
+            logger.log(level: level, "\(message, privacy: .private)")
         } else {
-            logger.debug("\(information, privacy: .public)")
+            logger.log(level: level, "\(message, privacy: .public)")
         }
     }
 }
+
