@@ -13,15 +13,18 @@ let package = Package(
     products: [
         .library(
             name: "AppLogger",
-            targets: ["AppLogger"]),
+            targets: ["AppLogger"]
+        )
     ],
     dependencies: [],
     targets: [
         .target(
             name: "AppLogger",
-            dependencies: []),
+            dependencies: []
+        ),
         .testTarget(
             name: "AppLoggerTests",
-            dependencies: ["AppLogger"]),
+            dependencies: ["AppLogger"]
+        )
     ]
 )
