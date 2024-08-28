@@ -61,7 +61,7 @@ public extension AppLogger {
     ///   - message: The `String` to be logged.
     ///   - isPrivate: Sets the `OSLogPrivacy` to be used by the function. `true` means `.private`;
     ///   `false` means `.public`. The default is `false`.
-    func log(level: OSLogType = .debug, message: String, isPrivate: Bool = Defaults.isPrivate) {
+    func log(level: OSLogType = .debug, _ message: String, isPrivate: Bool = Defaults.isPrivate) {
         if isPrivate {
             logger.log(level: level, "\(message, privacy: .private)")
         } else {
