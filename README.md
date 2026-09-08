@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://developer.apple.com/swift/"><img alt="Swift Version" src="https://img.shields.io/badge/Swift-6.4-ea7a50.svg?logo=swift&logoColor=white"></a>
+  <a href="https://developer.apple.com/swift/"><img alt="Swift Version" src="https://img.shields.io/badge/Swift-6.3.3-ea7a50.svg?logo=swift&logoColor=white"></a>
   <a href="https://developer.apple.com/xcode/"><img alt="Xcode Version" src="https://img.shields.io/badge/Xcode-27-50ace8.svg?logo=xcode&logoColor=white"></a>
   <a href="https://forums.swift.org/t/introducing-anyappleos/85728"><img alt="Platforms" src="https://img.shields.io/badge/AnyAppleOS-26%2B-lightgrey.svg?logo=apple&logoColor=white"></a>
   <a href="https://developer.apple.com/documentation/xcode/swift-packages"><img alt="SPM" src="https://img.shields.io/badge/SPM-ready-b68f6a.svg?logo=gitlfs&logoColor=white"></a>
@@ -57,7 +57,7 @@ In your `Package.swift`, add `AppLogger` as a dependency:
 dependencies: [
     .package(
         url: "https://github.com/thatfactory/applogger",
-        from: "1.0.0"
+        from: "1.1.1"
     )
 ]
 ```

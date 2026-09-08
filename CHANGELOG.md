@@ -2,6 +2,12 @@
 
 All notable changes to this project are documented in this file.
 
+## [1.1.1] - 2026-09-09
+
+### Fixed
+
+- Lowered the minimum Swift tools version from `6.4` to `6.3.3` so Xcode Cloud environments using Swift `6.3.3` can resolve the package. Public APIs and platform requirements are unchanged.
+
 ## [1.1.0] - 2026-07-21
 
 ### Added
