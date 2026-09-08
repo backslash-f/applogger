@@ -9,7 +9,6 @@ import os
 ///  - [OSLog](https://developer.apple.com/documentation/os/oslog)
 ///  - [Logger](https://developer.apple.com/documentation/os/logger)
 public struct AppLogger {
-
     // MARK: - Properties
 
     /// Default values used by the `AppLogger`.
@@ -42,8 +41,7 @@ public struct AppLogger {
 
 // MARK: - Interface
 
-public extension AppLogger {
-    
+extension AppLogger {
     /// Logs a string interpolation at the given level.
     ///
     /// - Parameters:
@@ -51,7 +49,7 @@ public extension AppLogger {
     ///   - message: The `String` to be logged.
     ///   - isPrivate: Sets the `OSLogPrivacy` to be used by the function. `true` means `.private`;
     ///   `false` means `.public`. The default is `false`.
-    func log(level: AppLogLevel = Defaults.level, _ message: String, isPrivate: Bool = Defaults.isPrivate) {
+    public func log(level: AppLogLevel = Defaults.level, _ message: String, isPrivate: Bool = Defaults.isPrivate) {
         if isPrivate {
             logger.log(level: level.osLogType, "\(message, privacy: .private)")
         } else {

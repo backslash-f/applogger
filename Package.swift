@@ -1,4 +1,4 @@
-// swift-tools-version:6.4
+// swift-tools-version:6.3.3
 
 import PackageDescription
 
@@ -8,7 +8,7 @@ let package = Package(
         .iOS(.v26),
         .macOS(.v26),
         .tvOS(.v26),
-        .watchOS(.v26)
+        .watchOS(.v26),
     ],
     products: [
         .library(
@@ -28,6 +28,6 @@ let package = Package(
         .testTarget(
             name: "AppLoggerTests",
             dependencies: ["AppLogger"]
-        )
+        ),
     ]
 )

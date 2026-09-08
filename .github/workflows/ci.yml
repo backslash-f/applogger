@@ -12,6 +12,17 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  swift-format:
+    name: Swift Format
+    runs-on: [self-hosted, macOS]
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+      - name: Validate Consumer Integration
+        run: AgentGuidelines/Scripts/validate_consumer_setup.swift
+      - name: Run Strict Swift Format
+        run: AgentGuidelines/Scripts/swift_format.sh lint-strict Package.swift Sources Tests
+
   test:
     name: Test
     runs-on: [self-hosted, macOS]

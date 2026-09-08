@@ -1,9 +1,8 @@
 import Foundation
 
-public extension Date {
+extension Date {
     /// Formats the date as `dd/MM HH:mm:ss` for concise logging output.
-    nonisolated
-    func formattedLogTimestamp(
+    public nonisolated func formattedLogTimestamp(
         locale: Locale = .autoupdatingCurrent,
         timeZone: TimeZone = .autoupdatingCurrent
     ) -> String {

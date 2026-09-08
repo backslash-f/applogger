@@ -7,6 +7,7 @@
 - Use current `swift-collections` documentation when working with its collection types.
 - Import the module that owns an API. For example, APIs specific to `OrderedCollections` require `import OrderedCollections`.
 - Maintain a zero-warning policy for warnings introduced by the change.
+- For Xcode projects, apply the shared [project-settings baseline](../Xcode/ProjectSettings.md) at project level so every application and test target inherits it.
 
 ## Implementation
 
@@ -22,9 +23,11 @@
 ## State and isolation
 
 - Treat actor isolation as part of an API's contract.
-- Mark UI-bound reference models `@MainActor` unless the target's default actor isolation already provides it.
-- Avoid adding `@MainActor` to tests or domain types merely to silence a diagnostic. Resolve the actual isolation boundary.
+- When application and test targets use MainActor default isolation, infer isolated conformances, and `nonisolated(nonsending)` by default, omit annotations that merely restate those effective settings. Verify every affected target before removing annotations.
+- `nonisolated(nonsending)` by default governs how nonisolated asynchronous functions run; it does not make synchronous types or conformances nonisolated. Keep explicit `nonisolated` where a value conformance must satisfy a `Sendable` generic contract, a synchronous API is called from a `@Sendable` closure, or another compiler-verified actor boundary requires it.
+- Keep an explicit isolation annotation when a declaration intentionally differs from the target default, crosses an actor boundary, belongs to reusable code compiled under different defaults, or implements a documented compiler workaround.
 - Use `Sendable` where values cross concurrency domains and their stored values support it.
+- Avoid adding `@MainActor` to tests or domain types merely to silence a diagnostic. Resolve the actual isolation boundary.
 
 ## C-family interoperability
 
