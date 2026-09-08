@@ -1,10 +1,11 @@
 import Foundation
 
-public extension TimeInterval {
+extension TimeInterval {
     /// Formats a duration for concise logging output.
-    nonisolated
-    func formattedLogDuration() -> String {
-        guard isFinite else { return "0s" }
+    public nonisolated func formattedLogDuration() -> String {
+        guard isFinite else {
+            return "0s"
+        }
 
         // Leave headroom because Double(Int.max) rounds to an out-of-range value.
         let maxRepresentableSeconds = Double(Int.max) - 1024

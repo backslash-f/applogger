@@ -1,5 +1,6 @@
 import Foundation
 import Testing
+
 @testable import AppLogger
 
 /// Verifies log-friendly duration formatting.

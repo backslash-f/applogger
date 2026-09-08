@@ -1,7 +1,6 @@
+import AppLoggerTests
 import XCTest
 
-import AppLoggerTests
-
-var tests = [XCTestCaseEntry]()
+var tests: [XCTestCaseEntry] = []
 tests += AppLoggerTests.allTests()
 XCTMain(tests)
