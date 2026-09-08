@@ -4,8 +4,10 @@ Use official Apple documentation and Xcode's current SwiftUI skills for API-spec
 
 ## View structure
 
+- Put SwiftUI dynamic properties such as `@Environment`, `@Query`, `@State`, and `@Binding` before ordinary stored `let` and `var` properties. Keep injected environment dependencies before locally owned state when both are present.
 - Keep a parent view focused on composition.
 - Model meaningful sections such as headers, lists, metadata, sidebars, and footers as separate `View` types with narrow inputs.
+- Keep each independently meaningful `View` in its own file, including private supporting views. Give every view its own deterministic preview when the required dependencies can be represented safely; when they cannot, document the concrete limitation in the handoff.
 - Do not extract sections into computed `some View` properties merely to shorten `body`; computed properties remain in the parent's invalidation boundary.
 - Tiny fragments reused within one body may use a small helper when they have no independent state, input, or invalidation story.
 - Keep view initializers cheap. Do not decode data, access files, build large structures, or allocate formatters in `init`.
@@ -58,4 +60,4 @@ With SDKs where `@State` is a macro, do not give a state property a declaration 
 
 ## Localization
 
-Follow [Localization](Localization.md) for user-facing text, layout direction, formatting, and package bundles.
+Follow [Localization](../Localization.md) for user-facing text, layout direction, formatting, and package bundles.
